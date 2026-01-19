@@ -2,44 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PX to REM Converter | Jesse DevUtils</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PX to REM Converter | Responsive Design Tools | Jesse DevUtils</title>
+    <meta name="description" content="Instant Pixel to REM conversion for modern CSS. Optimized for mobile-first design and accessibility.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PX to REM Converter",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-900 text-white min-h-screen font-sans">
-    <nav class="bg-slate-900 border-b border-slate-800 p-4 sticky top-0 z-50 mb-8">
+<body class="bg-[#0f172a] text-slate-200 min-h-screen font-sans">
+    <nav class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 p-4 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="https://devutils-io.netlify.app" class="flex items-center gap-2 group">
-                <div class="h-8 w-8 bg-gradient-to-br from-teal-500 to-blue-600 rounded flex items-center justify-center font-bold text-white text-sm">D</div>
+                <div class="h-8 w-8 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded flex items-center justify-center font-bold text-white text-sm shadow-lg shadow-purple-500/20">D</div>
                 <span class="text-slate-300 group-hover:text-white font-medium transition-colors">Back to DevUtils.io</span>
             </a>
-            <div class="hidden md:block text-xs text-slate-500 font-mono italic">Professional Utility Hub &bull; v1.0</div>
+            <span class="text-[10px] text-slate-500 font-mono font-bold uppercase tracking-widest">Layout Engine v2.0</span>
         </div>
     </nav>
-
-    <div class="max-w-4xl mx-auto px-8">
-        <h1 class="text-3xl font-bold text-blue-400 mb-2">PX &rarr; REM Converter</h1>
-        <p class="text-slate-400 mb-8">Convert Pixels to Rem units for responsive layouts.</p>
-        
-        <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 shadow-2xl">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <label class="block text-xs font-bold mb-2 text-slate-500 uppercase">Pixels (px)</label>
-                    <input type="number" id="px" class="w-full bg-slate-900 border border-slate-700 p-4 rounded text-2xl focus:ring-2 focus:ring-blue-500 outline-none" placeholder="16">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold mb-2 text-slate-500 uppercase">Result (rem)</label>
-                    <input type="text" id="rem" readonly class="w-full bg-slate-950 border border-slate-800 p-4 rounded text-2xl text-blue-300 font-mono" placeholder="1rem">
-                </div>
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <h1 class="text-4xl font-black text-white mb-2">PX <span class="text-purple-500">&rarr;</span> REM</h1>
+        <p class="text-slate-400 mb-12">Precision scaling for responsive, accessible web layouts.</p>
+        <div class="bg-slate-900 border border-slate-800 p-10 rounded-2xl shadow-2xl grid md:grid-cols-2 gap-10">
+            <div>
+                <label class="block text-xs font-bold text-slate-500 uppercase mb-4">Pixels (px)</label>
+                <input type="number" id="px" class="w-full bg-slate-950 border border-slate-800 p-5 rounded-xl text-3xl focus:ring-2 focus:ring-purple-500 outline-none text-white" placeholder="16">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-slate-500 uppercase mb-4">Result (rem)</label>
+                <input type="text" id="rem" readonly class="w-full bg-slate-800 border border-slate-700 p-5 rounded-xl text-3xl text-purple-400 font-mono" placeholder="1rem">
             </div>
         </div>
-    </div>
-
+    </main>
     <script>
-        const pxInput = document.getElementById('px');
-        const remOutput = document.getElementById('rem');
-        pxInput.addEventListener('input', (e) => {
-            if(!e.target.value) { remOutput.value = ''; return; }
-            remOutput.value = (e.target.value / 16).toFixed(3).replace(/\.?0+$/, "") + 'rem';
+        const px = document.getElementById('px');
+        const rem = document.getElementById('rem');
+        px.addEventListener('input', () => {
+            if(!px.value) { rem.value = ''; return; }
+            rem.value = (px.value / 16).toFixed(3).replace(/\.?0+$/, "") + 'rem';
         });
     </script>
 </body>
